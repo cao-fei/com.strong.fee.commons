@@ -8,7 +8,7 @@ import com.google.gson.reflect.TypeToken;
  * create: 2018/7/28 下午5:05
  */
 public class GsonUtil {
-    private static final Gson gson = new Gson();
+    private static final Gson gson = new Gson().newBuilder().setDateFormat("yyyy-MM-dd HH:mm:ss").create();
 
     public static <T> String toJson(T obj) {
         return gson.toJson(obj);
