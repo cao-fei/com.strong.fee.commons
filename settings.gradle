@@ -1,0 +1,4 @@
+rootProject.name = 'com.strong.fee.commons'
+
+include 'com.strong.fee.utils'
+include 'springboot-research'
