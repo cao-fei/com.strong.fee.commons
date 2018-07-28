@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.RestController;
  * create: 2018/7/28 下午12:20
  */
 @RestController
-public class WebHelloWorldTest {
+public class WebHelloWorld {
 
     @RequestMapping("helloworld")
     public UserInfo helloWorld() {
