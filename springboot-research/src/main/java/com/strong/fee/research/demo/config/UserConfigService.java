@@ -32,7 +32,7 @@ public class UserConfigService implements ApplicationContextAware {
     @PostConstruct
     public void before() {
         logger.info("before");
-        for(IUserService i:userServiceList){
+        for (IUserService i : userServiceList) {
             logger.info(i.toString());
         }
     }
@@ -41,7 +41,7 @@ public class UserConfigService implements ApplicationContextAware {
     public void destroy() {
         logger.info("destroy");
 
-        for(IUserService i:userServiceList){
+        for (IUserService i : userServiceList) {
             logger.info(i.toString());
         }
 

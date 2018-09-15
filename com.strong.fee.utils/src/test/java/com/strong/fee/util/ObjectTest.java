@@ -29,15 +29,15 @@ public class ObjectTest {
         Student2 objectTest1 = new Student2();
         logger.info("equals 判断结果：{}", objectTest.equals(objectTest1));
     }
+
     @Test
     public void testHashCode() {
         ObjectTest objectTest = new ObjectTest();
         ObjectTest objectTest1 = new ObjectTest();
-        logger.info("equals 判断结果：{},{}", objectTest.hashCode(),objectTest1.hashCode());
+        logger.info("equals 判断结果：{},{}", objectTest.hashCode(), objectTest1.hashCode());
 
 
-
-        logger.info("equals 判断结果：{},{}", new Object().hashCode(),new Object().hashCode());
+        logger.info("equals 判断结果：{},{}", new Object().hashCode(), new Object().hashCode());
     }
 
 

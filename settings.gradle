@@ -5,4 +5,3 @@ include 'springboot-research'
 include "spring-cloud-register"
 include "spring-cloud-service1"
 include "spring-cloud-service2"
-include "spring-boot-admin-server"

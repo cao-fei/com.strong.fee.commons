@@ -118,10 +118,12 @@ public class JmockitTest {
     public void test005() {
         test5fun(true);
     }
+
     @Test
     public void test006() {
         test5fun(false);
     }
+
     private A test5fun(boolean b) {
         try {
             if (b) {

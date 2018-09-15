@@ -7,3 +7,12 @@ eureka:
   client:
     service-url:
       default-zone: http://127.0.0.1:8761/eureka
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"  #<2>
+  endpoint:
+    health:
+      show-details: ALWAYS

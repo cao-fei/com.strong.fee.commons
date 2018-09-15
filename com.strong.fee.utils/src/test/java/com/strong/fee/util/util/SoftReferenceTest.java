@@ -12,8 +12,8 @@ import java.lang.ref.SoftReference;
 public class SoftReferenceTest {
 
     @Test
-    public void test001(){
-        SoftReference<Student> studentSoftReference =new SoftReference<>(new Student());
+    public void test001() {
+        SoftReference<Student> studentSoftReference = new SoftReference<>(new Student());
         studentSoftReference.
     }
 }

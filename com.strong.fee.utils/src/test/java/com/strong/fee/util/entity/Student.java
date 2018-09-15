@@ -14,7 +14,7 @@ public class Student {
     private int id;
     @SerializedName("code")
     private String name;
-//    @JSONField(format="yyyy-MM-dd HH:mm:ss")
+    //    @JSONField(format="yyyy-MM-dd HH:mm:ss")
     private Date birthday = new Date();
 
     private String remark;
