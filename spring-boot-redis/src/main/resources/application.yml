@@ -1,0 +1,16 @@
+server:
+  port: 6003
+spring:
+  redis:
+    port: 6379
+    database: 0
+    host: 192.168.1.109
+    timeout: 10s
+    jedis:
+      pool:
+        max-active: 8
+        max-wait: 1000ms
+        min-idle: 0
+        max-idle: 8
+        
+

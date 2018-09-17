@@ -1,7 +1,10 @@
 rootProject.name = 'com.strong.fee'
 
-include 'com.strong.fee.utils'
-include 'springboot-research'
-include "spring-cloud-register"
-include "spring-cloud-service1"
-include "spring-cloud-service2"
+include ':com.strong.fee.utils'
+include ':springboot-research'
+include ":spring-cloud-register"
+include ":spring-cloud-service1"
+include ":spring-cloud-service2"
+include ":spring-boot-redis"
+include ":spring-security"
+include ":spring-cloud-zuul"
