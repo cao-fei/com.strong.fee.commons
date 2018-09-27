@@ -16,7 +16,7 @@ import org.springframework.stereotype.Service;
 public class CustomerUserDetailService implements UserDetailsService {
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-        User user=new User(username, new BCryptPasswordEncoder().encode("123456"),
+        User user = new User(username, new BCryptPasswordEncoder().encode("123456"),
                 AuthorityUtils.commaSeparatedStringToAuthorityList("admin"));
         return user;
     }

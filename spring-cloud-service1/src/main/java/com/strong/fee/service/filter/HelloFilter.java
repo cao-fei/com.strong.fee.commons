@@ -18,8 +18,8 @@ public class HelloFilter implements Filter {
 
     @Override
     public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain) throws IOException, ServletException {
-        request.setAttribute("user","cao-fei");
-        request.setAttribute("requestId","cao-fei");
+        request.setAttribute("user", "cao-fei");
+        request.setAttribute("requestId", "cao-fei");
         chain.doFilter(request, response);
     }
 

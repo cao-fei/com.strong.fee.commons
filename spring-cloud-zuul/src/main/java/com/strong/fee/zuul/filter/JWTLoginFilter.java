@@ -24,6 +24,7 @@ import java.util.*;
  * 该类继承自UsernamePasswordAuthenticationFilter，重写了其中的2个方法
  * attemptAuthentication ：接收并解析用户凭证。
  * successfulAuthentication ：用户成功登录后，这个方法会被调用，我们在这个方法里生成token。
+ *
  * @author zhaoxinguo on 2017/9/12.
  */
 public class JWTLoginFilter extends UsernamePasswordAuthenticationFilter {
@@ -71,7 +72,7 @@ public class JWTLoginFilter extends UsernamePasswordAuthenticationFilter {
             calendar.add(Calendar.DAY_OF_MONTH, 30);
             Date time = calendar.getTime();
             token = Jwts.builder()
-                    .setSubject(auth.getName() )
+                    .setSubject(auth.getName())
                     .setExpiration(time) // 设置过期时间30天
                     .signWith(SignatureAlgorithm.HS512, "spring-security-@Jwt!&Secret^#") //采用什么算法是可以自己选择的，不一定非要采用HS512
                     .compact();

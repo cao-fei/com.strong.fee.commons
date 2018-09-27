@@ -19,16 +19,18 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 public class GateSecurityConfig extends WebSecurityConfigurerAdapter {
     @Autowired
     private CustomerUserDetailService customerUserDetailService;
+
     @Override
     protected void configure(HttpSecurity http) throws Exception {
         http.cors().and().csrf().disable().authorizeRequests()
-                .antMatchers( "/login").permitAll()
+                .antMatchers("/login").permitAll()
                 .anyRequest().authenticated()
                 .and()
                 .addFilter(new JWTLoginFilter(authenticationManager()))
                 .addFilter(new JWTAuthenticationFilter(authenticationManager()));
 
     }
+
     @Override
     public void configure(AuthenticationManagerBuilder auth) throws Exception {
         auth.userDetailsService(customerUserDetailService).passwordEncoder(passwordEncoder());

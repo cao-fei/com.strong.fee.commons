@@ -24,7 +24,7 @@ public class CustomAuthenticationProvider implements AuthenticationProvider {
 
     private BCryptPasswordEncoder bCryptPasswordEncoder;
 
-    public CustomAuthenticationProvider(UserDetailsService userDetailsService, BCryptPasswordEncoder bCryptPasswordEncoder){
+    public CustomAuthenticationProvider(UserDetailsService userDetailsService, BCryptPasswordEncoder bCryptPasswordEncoder) {
         this.userDetailsService = userDetailsService;
         this.bCryptPasswordEncoder = bCryptPasswordEncoder;
     }
@@ -55,6 +55,7 @@ public class CustomAuthenticationProvider implements AuthenticationProvider {
 
     /**
      * 是否可以提供输入类型的认证服务
+     *
      * @param authentication
      * @return
      */

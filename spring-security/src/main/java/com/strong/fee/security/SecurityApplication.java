@@ -19,11 +19,12 @@ public class SecurityApplication {
     }
 
     @RequestMapping(value = "hello")
-    public String hello(String user){
-        return "hello world,"+user;
+    public String hello(String user) {
+        return "hello world," + user;
     }
+
     @ModelAttribute
-    public String user(){
-        return  "cao-fei";
+    public String user() {
+        return "cao-fei";
     }
 }
