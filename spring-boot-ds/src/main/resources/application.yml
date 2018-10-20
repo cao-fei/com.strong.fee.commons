@@ -1,0 +1,25 @@
+spring:
+  application:
+    name: db-demo
+
+  datasource:
+    druid:
+      driver-class-name: oracle.jdbc.OracleDriver
+      url: jdbc:mysql://192.168.32.139:3306/uzkefu?useUnicode=true&characterEncoding=UTF-8
+      username: test
+      password: test
+      stat-view-servlet:
+        url-pattern: /druid/*
+        reset-enable: true
+        login-username: druid
+        login-password: druid
+      web-stat-filter:
+        url-pattern: /*
+        exclusions: "*.js,*.gif,*.jpg,*.bmp,*.png,*.css,*.ico,/druid/*"
+
+
+
+server:
+  port: 5003
+  servlet:
+    context-path: /jdbc

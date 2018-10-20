@@ -1,0 +1,19 @@
+server:
+  port: 7001
+spring:
+  application:
+    name: zuul-gateway
+eureka:
+  client:
+    service-url:
+      zone-default: http://127.0.0.1:8761/eureka
+zuul:
+  routes:
+    service1:
+      path: /service-1/**
+      service-id: service-1
+
+    service2:
+      path: /service-2/**
+      service-id: service-2
+
