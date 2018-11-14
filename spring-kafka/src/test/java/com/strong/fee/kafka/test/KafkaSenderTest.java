@@ -13,10 +13,20 @@ import org.springframework.test.context.junit4.SpringRunner;
 public class KafkaSenderTest {
     @Autowired
     private KafkaSender sender;
+
     @Test
     public void test001() {
-        for(int i=0;i<2;i++){
+        for (int i = 0; i < 2; i++) {
             sender.send();
         }
     }
+
+    @Test
+    public void test002() {
+        String data = "cao fei";
+        for (int i = 0; i < 100; i++) {
+            sender.send("streams-plaintext-input", data);
+        }
+    }
+
 }

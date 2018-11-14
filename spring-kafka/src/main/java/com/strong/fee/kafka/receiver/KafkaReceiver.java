@@ -13,7 +13,8 @@ import java.util.Optional;
 public class KafkaReceiver {
 
     private Logger logger = LoggerFactory.getLogger(KafkaSender.class);
-    @KafkaListener(topics = {"caofei"} ,groupId = "1")
+
+    @KafkaListener(topics = {"caofei"}, groupId = "1")
     public void listen(ConsumerRecord<?, ?> record) {
 
         Optional<?> kafkaMessage = Optional.ofNullable(record.value());
@@ -25,7 +26,9 @@ public class KafkaReceiver {
             logger.info("listen message =" + message);
         }
 
-    }@KafkaListener(topics = {"caofei"} ,groupId = "1")
+    }
+
+    @KafkaListener(topics = {"caofei"}, groupId = "1")
     public void listen1(ConsumerRecord<?, ?> record) {
 
         Optional<?> kafkaMessage = Optional.ofNullable(record.value());
@@ -38,7 +41,8 @@ public class KafkaReceiver {
         }
 
     }
-    @KafkaListener(topics = {"caofei"} ,groupId = "2")
+
+    @KafkaListener(topics = {"caofei"}, groupId = "2")
     public void listen2(ConsumerRecord<?, ?> record) {
 
         Optional<?> kafkaMessage = Optional.ofNullable(record.value());
@@ -50,4 +54,20 @@ public class KafkaReceiver {
         }
 
     }
+    @KafkaListener(topics = {"streams-wordcount-output"}, groupId = "count result")
+    public void countResult(ConsumerRecord<String, String> record) {
+
+        Optional<String> kafkaMessage = Optional.ofNullable(record.value());
+
+        Optional<String> kafkaKey = Optional.ofNullable(record.key());
+
+        if (kafkaMessage.isPresent()) {
+
+            String value = kafkaMessage.get();
+            String key = kafkaKey.get();
+            logger.info("count Result  key:{},value{}" ,key,value);
+        }
+
+    }
+
 }

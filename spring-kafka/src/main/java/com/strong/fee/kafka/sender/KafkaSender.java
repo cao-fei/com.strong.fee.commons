@@ -41,7 +41,28 @@ public class KafkaSender {
 
             @Override
             public void onSuccess(SendResult<String, String> result) {
-                logger.info("发送成功"+JsonUtil.toJson(result.getProducerRecord().value()));
+                logger.info("发送成功" + JsonUtil.toJson(result.getProducerRecord().value()));
+            }
+        });
+        try {
+            future.get();
+        } catch (Exception ex) {
+        }
+
+    }
+
+    //发送消息方法
+    public void send(String topic, String data) {
+        ListenableFuture<SendResult<String, String>> future = kafkaTemplate.send(topic, data);
+        future.addCallback(new ListenableFutureCallback<SendResult<String, String>>() {
+            @Override
+            public void onFailure(Throwable ex) {
+                logger.info("发送失败", ex);
+            }
+
+            @Override
+            public void onSuccess(SendResult<String, String> result) {
+                logger.info("发送成功" + JsonUtil.toJson(result.getProducerRecord().value()));
             }
         });
         try {
