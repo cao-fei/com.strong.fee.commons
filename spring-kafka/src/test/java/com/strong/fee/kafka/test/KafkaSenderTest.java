@@ -23,7 +23,7 @@ public class KafkaSenderTest {
 
     @Test
     public void test002() {
-        String data = "cao fei";
+        String data = "caofei";
         for (int i = 0; i < 100; i++) {
             sender.send("streams-plaintext-input", data);
         }

@@ -10,4 +10,5 @@ include ":spring-security"
 include ":spring-cloud-zuul"
 include ":spring-boot-admin-server"
 include ":netty-research" 
-include ":spring-kafka"
+include ":spring-kafka" 
+

@@ -1,0 +1,17 @@
+server:
+  port: 2001
+eureka:
+  client:
+    service-url:
+      default-zone: https://127.0.0.1:8761
+spring:
+  zipkin:
+    base-url: http://172.16.21.159:9411/
+    sleuth:
+      sampler:
+        probability: 1 #样本采集量，默认为0.1，为了测试这里修改为1，正式环境一般使用默认值。
+feign:
+  httpclient:
+    enabled: true
+  hystrix:
+    enabled: true

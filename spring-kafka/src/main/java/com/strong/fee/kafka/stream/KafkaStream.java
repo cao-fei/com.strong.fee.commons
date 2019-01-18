@@ -8,6 +8,8 @@ import org.apache.kafka.streams.KeyValue;
 import org.apache.kafka.streams.StreamsBuilder;
 import org.apache.kafka.streams.StreamsConfig;
 import org.apache.kafka.streams.kstream.*;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.autoconfigure.kafka.KafkaProperties;
 import org.springframework.stereotype.Component;
@@ -21,6 +23,7 @@ import java.util.concurrent.CountDownLatch;
 public class KafkaStream {
     @Autowired
     private KafkaProperties kafkaProperties;
+    private Logger logger = LoggerFactory.getLogger(KafkaStream.class);
 
     private Properties getProperties() {
         Properties props = new Properties();
@@ -48,13 +51,15 @@ public class KafkaStream {
         final KTable<String, String> counts = source
                 .flatMapValues(value -> Arrays.asList(value.toLowerCase(Locale.getDefault()).split(" ")))
                 .groupBy((key, value) -> value)
-                .count().mapValues(o->o.toString());
+                .count().mapValues(o -> {
+                    logger.info("========="+o.toString());
+                    return o.toString();
+                });
 
         // need to override value serde to Long type
         counts.toStream().to("streams-wordcount-output", Produced.with(Serdes.String(), Serdes.String()));
 
         final KafkaStreams streams = new KafkaStreams(builder.build(), props);
-
 
 
         try {

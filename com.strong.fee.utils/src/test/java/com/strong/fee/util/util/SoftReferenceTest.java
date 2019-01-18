@@ -14,6 +14,6 @@ public class SoftReferenceTest {
     @Test
     public void test001() {
         SoftReference<Student> studentSoftReference = new SoftReference<>(new Student());
-        studentSoftReference.
+//        studentSoftReference.
     }
 }
