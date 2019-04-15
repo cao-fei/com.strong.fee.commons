@@ -26,6 +26,7 @@ public class FastJsonUtil {
     }
 
     public static <T> T fromJson(String json, TypeReference<T> typeReference) {
+
         return JSON.parseObject(json, typeReference);
     }
 }

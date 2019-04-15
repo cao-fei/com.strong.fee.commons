@@ -4,4 +4,6 @@ include 'cloud-consumer'
 include 'cloud-providor'
 include "cloud-regester"
 include "domain"
-include "service-definition" 
+include "service-definition"
+include "java-demo"
+include "spring-boot"
